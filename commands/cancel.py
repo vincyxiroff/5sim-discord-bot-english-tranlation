@@ -21,25 +21,25 @@ Activation  =  False
 @bot.command()
 async def cancel_order(ctx, id=None):
     if id is None:
-        await ctx.send("🆔 Debes proporcionar la ID de la order para usar este comando.")
+        await ctx.send("🆔 You must provide the order ID to use this command.")
         return    
     r = requests.get(f'https://5sim.net/v1/user/cancel/{id}', headers=headers)
     
     if r.status_code == 200:
         r = json.loads(r.text)
         embed = discord.Embed(
-            title=':no_entry: Cancelado!',
+            title=':no_entry: Canceled!',
             colour=discord.Color.red()
         )
         
         embed.add_field(name='Order ID', value=r['id'], inline=True)
-        embed.add_field(name='País', value=r['country'], inline=True)
+        embed.add_field(name='Country', value=r['country'], inline=True)
         embed.add_field(name='Número', value=r['phone'], inline=True)
-        embed.add_field(name='Precio', value=r['price'], inline=True)
-        embed.add_field(name='Producto', value=r['product'], inline=True)
+        embed.add_field(name='Price', value=r['price'], inline=True)
+        embed.add_field(name='Product', value=r['product'], inline=True)
         embed.add_field(name='Status', value=r['status'], inline=True)
         embed.add_field(name='\u200b', value='\u200b', inline=False)
-        embed.add_field(name='Resultado', value='Order cancelada', inline=False)
+        embed.add_field(name='Result', value='Order canceled', inline=False)
 
         await ctx.send(embed=embed)
         return
@@ -49,7 +49,7 @@ async def cancel_order(ctx, id=None):
             colour=discord.Color.red()
         )
         
-        embed.add_field(name='Error', value='Order no encontrada', inline=False)
+        embed.add_field(name='Error', value='Order not found', inline=False)
 
         await ctx.send(embed=embed)
         return
