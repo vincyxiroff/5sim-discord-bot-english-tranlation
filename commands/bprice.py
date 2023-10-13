@@ -44,11 +44,11 @@ async def best_price(ctx, product_name):
                     bestPriceCT.append(country)
 
         if bestPriceCT:
-            await ctx.send(f"El mejor precio es `{min_price}₽` de {', '.join(bestPriceCT)}")
+            await ctx.send(f"The best price is `{min_price}₽` of {', '.join(bestPriceCT)}")
         else:
-            await ctx.send("No ha habido resultados")
+            await ctx.send("There have been no results")
     else:
-        await ctx.send("Lo siento, no he encontrado el producto.")
+        await ctx.send("Sorry, I couldn't find the product.")
 
 def setup(bot):
     bot.add_command(best_price)
