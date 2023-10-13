@@ -25,18 +25,18 @@ async def help(ctx):
         inline=False
     )
     embed.add_field(
-        name="💸 `?buy` | país | operadora | producto",
-        value="> **Compra un número de teléfono.**",
+        name="💸 `?buy` | country | operator | producto",
+        value="> **Buy a phone number.**",
         inline=True
     )
     embed.add_field(
         name="❌ `?cancel_order` | order ID",
-        value="> **Cancela una order que has hecho.**",
+        value="> **Cancel an order you have placed.**",
         inline=True
     )
     embed.add_field(
         name="🚩 `?finish_order` | order ID",
-        value="> **Finaliza una order después de haber recibido el número de teléfono.**",
+        value="> **Finalize an order after you have received the phone number.**",
         inline=True
     )
     embed.add_field(
@@ -46,7 +46,7 @@ async def help(ctx):
     )
     embed.add_field(
         name="🔎 `?check_order` | order ID",
-        value="> **Revisa el estado de una order.**",
+        value="> **Check the status of an order.**",
         inline=True
     )
     embed.add_field(
