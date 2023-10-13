@@ -26,25 +26,25 @@ async def check_api(ctx):
             embed = discord.Embed(title="✅ HECHO ✅", 
                                   description="", 
                                   colour=discord.Colour.green())
-            embed.add_field(name="Request Perfecta", 
-                            value="Todo está funcionado perfectamente.")
+            embed.add_field(name="Request Perfect", 
+                            value="Everything is working perfectly.")
             await ctx.send(embed=embed)
 
         if response.status_code == 401:
             embed.add_field(name=":x: ERROR :x:", 
-                            value="Recuerda poner tu apikey en el archivo `config.py`.")
+                            value="Remember to put the api in the `config.py`.")
             await ctx.send(embed=embed)
 
         if response.status_code == 429:
-            embed.add_field(name="⏰ TOMA UN RESPIRO ⏰", 
-                            value="Estás bajo rate limit, espera unos minutos y vuelve a intentarlo. ")
+            embed.add_field(name="⏰ TAKE A BREAK ⏰", 
+                            value="You are under rate limit, wait a few minutes and try again. ")
             await ctx.send(embed=embed)
 
     except AttributeError:
         embed = discord.Embed(title=":x: ERROR :x:", 
                               description="", 
                               colour=discord.Colour.red())
-        embed.add_field(name="[401] Unauthorized", value="Recuerda poner tu apikey en el archivo `config.py`.")
+        embed.add_field(name="[401] Unauthorized", value="Remember to put ur api key in the `config.py`.")
         await ctx.send(embed=embed)
 
     except Exception:
