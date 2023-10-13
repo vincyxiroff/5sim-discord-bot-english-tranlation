@@ -19,7 +19,7 @@ headers = {
 @bot.command()
 async def ban_order(ctx, id=None):
     if id is None:
-        await ctx.send("🆔 Debes proporcionar la ID de la order para usar este comando.")
+        await ctx.send("🆔 You must provide the order ID to use this command.")
         return    
     channel = ctx.channel
 
@@ -28,7 +28,7 @@ async def ban_order(ctx, id=None):
     phone = responsejson['phone']
     
     if responsejson['status'] == 'BANNED':
-        await channel.send(f'✅ Teléfono `{phone}` con el ID `{id}` banneado correctamente ✅')
+        await channel.send(f'✅ The number `{phone}` with the ID `{id}` banned correctly ✅')
 
 def setup(bot):
     bot.add_command(ban_order)
