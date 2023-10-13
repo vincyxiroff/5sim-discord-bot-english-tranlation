@@ -34,10 +34,10 @@ async def check_order(ctx, id=None):
         )
         
         embed.add_field(name='Order ID', value=r['id'], inline=False)
-        embed.add_field(name='País', value=r['country'], inline=False)
+        embed.add_field(name='Country', value=r['country'], inline=False)
         embed.add_field(name='Número', value=r['phone'], inline=False)
-        embed.add_field(name='Precio', value=r['price'], inline=False)
-        embed.add_field(name='Producto', value=r['product'], inline=False)
+        embed.add_field(name='Price', value=r['price'], inline=False)
+        embed.add_field(name='Product', value=r['product'], inline=False)
         embed.add_field(name='Status', value=r['status'], inline=False)
 
         await ctx.send(embed=embed)
@@ -48,7 +48,7 @@ async def check_order(ctx, id=None):
             colour=discord.Color.red()
         )
         
-        embed.add_field(name='Error', value='Order no encontrada', inline=False)
+        embed.add_field(name='Error', value='Order not found', inline=False)
 
         await ctx.send(embed=embed)
         return
