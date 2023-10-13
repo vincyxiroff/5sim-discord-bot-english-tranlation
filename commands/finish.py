@@ -21,7 +21,7 @@ Activation  =  False
 @bot.command()
 async def finish_order(ctx, id=None):
     if id is None:
-        await ctx.send("🆔 Debes proporcionar la ID de la order para usar este comando.")
+        await ctx.send("🆔 You must provide the order ID to use this command.")
         return
     r = requests.get(f'https://5sim.net/v1/user/finish/{id}', headers=headers)
     
@@ -33,10 +33,10 @@ async def finish_order(ctx, id=None):
         )
         
         embed.add_field(name='Order ID', value=r['id'], inline=False)
-        embed.add_field(name='País', value=r['country'], inline=False)
+        embed.add_field(name='Country', value=r['country'], inline=False)
         embed.add_field(name='Número', value=r['phone'], inline=False)
-        embed.add_field(name='Precio', value=r['price'], inline=False)
-        embed.add_field(name='Producto', value=r['product'], inline=False)
+        embed.add_field(name='Price', value=r['price'], inline=False)
+        embed.add_field(name='Product', value=r['product'], inline=False)
         embed.add_field(name='Status', value=r['status'], inline=False)
         
         await ctx.send(embed=embed)
@@ -44,7 +44,7 @@ async def finish_order(ctx, id=None):
         embed = discord.Embed(
             title=':x: ERROR :x:',
             colour=discord.Color.red(),
-            description='Order no encontrada'
+            description='Order not found'
         )
         
         await ctx.send(embed=embed)
