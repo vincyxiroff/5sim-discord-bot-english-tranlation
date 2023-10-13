@@ -22,7 +22,7 @@ Activation = False
 @bot.command()
 async def buy(ctx, country=None, operator=None, product=None):
     if country is None or operator is None or product is None:
-        await ctx.send("Debes proporcionar todos los argumentos: `país`, `operadora` y `producto`.")
+        await ctx.send("You must provide all arguments: `country`, `operator` and `product`.")
         return    
     global embedsms, smsv
 
@@ -47,9 +47,9 @@ async def buy(ctx, country=None, operator=None, product=None):
             embedsms.add_field(name='Order ID', value=r['id'], inline=True)
             embedsms.add_field(name='SMS', value=smsv, inline=True)
             embed.add_field(name="",value="\u200b",  inline=False)
-            embedsms.add_field(name='Producto', value=r['product'], inline=True)
+            embedsms.add_field(name='Product', value=r['product'], inline=True)
             embedsms.add_field(name='Status', value=r['status'], inline=True)
-            embed.set_footer(text="Termina la order usando ?finis_order | order ID")
+            embed.set_footer(text="End The Order Using ?finis_order | order ID")
 
     Activation = True
     while Activation:
@@ -69,16 +69,16 @@ async def buy(ctx, country=None, operator=None, product=None):
                 time_in_minutes = time_in_seconds / 60
                 
                 embed = discord.Embed(
-                    title='✅ HECHO ✅',
+                    title='✅ MADE ✅',
                     colour=discord.Color.green()
                 )
                 embed.add_field(name='Order ID', value=dio['id'], inline=True)
-                embed.add_field(name='País', value=dio['country'], inline=True)
+                embed.add_field(name='Country', value=dio['country'], inline=True)
                 embed.add_field(name='Número', value=dio['phone'], inline=True)
-                embed.add_field(name='Operador', value=dio['operator'], inline=True)
-                embed.add_field(name='Precio', value=dio['price'], inline=True)
-                embed.add_field(name='Producto', value=dio['product'], inline=True)
-                embed.add_field(name='Expira', value=int(time_in_minutes), inline=True)
+                embed.add_field(name='Operator', value=dio['operator'], inline=True)
+                embed.add_field(name='Price', value=dio['price'], inline=True)
+                embed.add_field(name='Product', value=dio['product'], inline=True)
+                embed.add_field(name='Expire', value=int(time_in_minutes), inline=True)
                 embed.add_field(name='Status', value=dio['status'], inline=True)
                 await ctx.send(embed=embed)
                 Activation = False
